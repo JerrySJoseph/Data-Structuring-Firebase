@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--App Theme Dimens-->
+    <dimen name="Headline1">@dimen/_40ssp</dimen>
+    <dimen name="Headline2">@dimen/_28ssp</dimen>
+    <dimen name="Title">@dimen/_17ssp</dimen>
+    <dimen name="Body">@dimen/_14ssp</dimen>
+    <dimen name="Caption">@dimen/_12ssp</dimen>
+    <dimen name="round_corner_radius">@dimen/_10sdp</dimen>
+
+</resources>

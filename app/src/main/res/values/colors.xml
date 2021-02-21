@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorBlue">#007AFF</color>
+    <color name="colorOrange">#FF9500</color>
+    <color name="colorGreen">#4CD964</color>
+    <color name="colorGrey">#858585</color>
+    <color name="colorRed">#FF3B30</color>
+    <color name="colorOffWhite">#f8f8f8</color>
+    <color name="colorBlack">#060606</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorItemSelectedBlue">#d6eaff</color>
+    <color name="colorItemSelectedGreen">#d6ffdd</color>
+    <color name="colorItemSelectedRed">#ffbbb8</color>
+    <color name="colorItemSelectedOrange">#ffe3bd</color>
+
+    <!-- Gradien Colors -->
+    <color name="gradientRedStart">#ccf46b45</color>
+    <color name="gradientRedEnd">#cceea849</color>
+
+</resources>

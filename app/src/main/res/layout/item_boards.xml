@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/layout"
+    android:layout_margin="@dimen/_10sdp"
+    android:elevation="@dimen/_5sdp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/bg_highlight_offwhite"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/_10sdp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_alignParentLeft="true"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/icon"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:src="@drawable/ic_profile"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/colorWhite"/>
+        <TextView
+            android:id="@+id/title"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/icon"
+            android:layout_toLeftOf="@id/more"
+            android:text="Some amazing Title "
+            android:maxLines="2"
+            android:textStyle="bold"
+            android:layout_centerVertical="true"
+            style="@style/Theme.DataStructuringFirebase.Body"/>
+        <ImageView
+            android:id="@+id/more"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:src="@drawable/ic_more"/>
+    </RelativeLayout>
+    <View
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/cardview_shadow_start_color"/>
+    <RelativeLayout
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/date"
+            style="@style/Theme.DataStructuringFirebase.date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="-1dp"
+            android:drawableLeft="@drawable/ic_calendar"
+            android:drawablePadding="@dimen/_5sdp"
+            android:maxLines="2"
+            android:text=" 22 Feb 2019 " />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pending"
+            android:maxLines="2"
+            android:textColor="@color/colorOrange"
+            android:layout_centerVertical="true"
+            style="@style/Theme.DataStructuringFirebase.date"/>
+    </RelativeLayout>
+    <com.example.data_structuring_firebase.UI.CustomViews.ProgressBarView
+        android:layout_marginTop="@dimen/_10sdp"
+        android:id="@+id/pbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
