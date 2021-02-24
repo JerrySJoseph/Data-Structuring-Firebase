@@ -12,58 +12,26 @@ import java.util.ArrayList;
 
 public class MainActivityViewModel extends ViewModel {
 
-    private LiveData<ArrayList<Board>> boardList;
-    private MutableLiveData<ArrayList<TaskModel>> importantTasksList=new MutableLiveData<>();
-    private MutableLiveData<String> name=new MutableLiveData<>();
-    private MutableLiveData<String> caption=new MutableLiveData<>();
-    private MutableLiveData<String> imageUrl=new MutableLiveData<>();
-
     DataRepository repository;
 
 
     public MainActivityViewModel() {
         super();
         repository=DataRepository.getInstance();
-        boardList=repository.getAllBoards();
     }
 
     public LiveData<ArrayList<Board>> getBoardList() {
-        return boardList;
+        return repository.getAllBoards();
+    }
+    public void deleteBoard(Board board){
+        repository.deleteBoard(board.getId());
     }
 
-
-    public LiveData<ArrayList<TaskModel>> getImportantTasksList() {
-        return importantTasksList;
+    public void updateBoard(Board board)
+    {
+        repository.updateBoard(board);
     }
-
-    public void setImportantTasksList(ArrayList<TaskModel> importantTasksList) {
-        this.importantTasksList.setValue(importantTasksList);
-    }
-
-    public LiveData<String> getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name.setValue(name);
-    }
-
-    public LiveData<String> getCaption() {
-        return caption;
-    }
-
-    public void setCaption(String caption) {
-        this.caption.postValue(caption);
-    }
-
-    public LiveData<String> getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl.postValue(imageUrl);
-    }
-    public void AddBoard(Board board)
+    public void addBoard(Board board)
     {
         repository.insertBoard(board);
     }

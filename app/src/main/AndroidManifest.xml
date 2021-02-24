@@ -9,10 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DataStructuringFirebase">
-        <activity android:name=".UI.Views.AddBoard.AddBoard"></activity>
+        <activity android:name=".UI.Views.SearchResultsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+        </activity>
+        <activity android:name=".UI.Views.AddBoard.AddBoard" />
         <activity
-            android:name=".UI.Views.Board.ShowBoardActivity"
-            android:theme="@style/Theme.DataStructuringFirebase.FullScreen" />
+            android:name=".UI.Views.ShowBoard.ShowBoardActivity"
+            android:theme="@style/Theme.DataStructuringFirebase.FullScreen" >
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
         <activity
             android:name=".UI.Views.LoginSignUp.LoginSignupActivity"
             android:theme="@style/Theme.DataStructuringFirebase.FullScreen" />

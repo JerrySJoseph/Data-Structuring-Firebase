@@ -34,6 +34,7 @@ public class NetworkApi {
                     reposnseListener.OnResponse(error.getMessage());
             }
         });
+        rootRef.keepSynced(true);
     }
 
     public static void insertBoard(Board board)
@@ -42,6 +43,7 @@ public class NetworkApi {
         board.setId(childRef.getKey());
         board.setCreatedAt(System.currentTimeMillis());
         childRef.setValue(board);
+
     }
 
     public static void updateBoard(Board board)
@@ -50,6 +52,9 @@ public class NetworkApi {
         childRef.setValue(board);
     }
 
+    public static void deleteBoard(String boardID){
+        rootRef.child(boardID).removeValue();
+    }
     public interface NetworkApiResponse{
         void OnResponse(Object response);
         void OnFailure(String error);

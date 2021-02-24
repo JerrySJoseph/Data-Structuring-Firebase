@@ -75,16 +75,17 @@
                     android:layout_height="@dimen/_40sdp"
                     android:src="@drawable/ic_profile"
                     app:civ_border_width="2dp"
+                    android:layout_centerVertical="true"
                     app:civ_border_color="@color/colorWhite"/>
             </RelativeLayout>
             <TextView
                 android:layout_margin="@dimen/_10sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Your Boards"
+                android:text="My Boards"
                 android:textStyle="bold"
                 android:textColor="@color/colorWhite"
-                style="@style/Theme.DataStructuringFirebase.Body"
+                style="@style/Theme.DataStructuringFirebase.Title"
                 />
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/boards_viewpager"
@@ -94,15 +95,30 @@
                 android:layout_margin="@dimen/_10sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="My Teams"
+                android:textStyle="bold"
+                android:textColor="?attr/colorOnSurface"
+                style="@style/Theme.DataStructuringFirebase.Title"
+                />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/team_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+            <TextView
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:text="Important Tasks"
                 android:textStyle="bold"
                 android:textColor="?attr/colorOnSurface"
-                style="@style/Theme.DataStructuringFirebase.Body"
+                style="@style/Theme.DataStructuringFirebase.Title"
                 />
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler"
+                android:id="@+id/tasks_recycler"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                />
 
         </LinearLayout>
 

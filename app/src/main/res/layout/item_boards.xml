@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:id="@+id/layout"
+<LinearLayout android:id="@+id/layout"
     android:layout_margin="@dimen/_10sdp"
     android:elevation="@dimen/_5sdp"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -8,7 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="@dimen/_10sdp">
+    android:padding="@dimen/_10sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -20,7 +20,7 @@
             android:layout_height="@dimen/_40sdp"
             android:src="@drawable/ic_profile"
             app:civ_border_width="2dp"
-            app:civ_border_color="@color/colorWhite"/>
+            app:civ_border_color="?attr/colorPrimary"/>
         <TextView
             android:id="@+id/title"
             android:layout_marginLeft="@dimen/_10sdp"
@@ -30,16 +30,16 @@
             android:layout_toLeftOf="@id/more"
             android:text="Some amazing Title "
             android:maxLines="2"
-            android:textStyle="bold"
             android:layout_centerVertical="true"
-            style="@style/Theme.DataStructuringFirebase.Body"/>
+            style="@style/Theme.DataStructuringFirebase.ItemBoard.Title"/>
         <ImageView
             android:id="@+id/more"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             android:layout_width="@dimen/_20sdp"
             android:layout_height="@dimen/_20sdp"
-            android:src="@drawable/ic_more"/>
+            android:src="@drawable/ic_more"
+            app:tint="@color/colorGrey"/>
     </RelativeLayout>
     <View
         android:layout_marginTop="@dimen/_10sdp"
@@ -55,7 +55,7 @@
 
         <TextView
             android:id="@+id/date"
-            style="@style/Theme.DataStructuringFirebase.date"
+            style="@style/Theme.DataStructuringFirebase.ItemBoard.Body"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -72,9 +72,10 @@
             android:layout_height="wrap_content"
             android:text="Pending"
             android:maxLines="2"
+            android:textStyle="bold"
             android:textColor="@color/colorOrange"
             android:layout_centerVertical="true"
-            style="@style/Theme.DataStructuringFirebase.date"/>
+            style="@style/Theme.DataStructuringFirebase.ItemBoard.Body"/>
     </RelativeLayout>
     <com.example.data_structuring_firebase.UI.CustomViews.ProgressBarView
         android:layout_marginTop="@dimen/_10sdp"

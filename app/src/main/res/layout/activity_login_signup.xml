@@ -29,14 +29,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Welcome to"
-                style="@style/Theme.DataStructuringFirebase.Headline2"
+                style="@style/Theme.DataStructuringFirebase.Headline"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tasks Daily"
-                style="@style/Theme.DataStructuringFirebase.Headline2"
+                style="@style/Theme.DataStructuringFirebase.Headline"
                 android:textColor="?attr/colorPrimary"/>
             <LinearLayout
                 android:layout_marginTop="30dp"

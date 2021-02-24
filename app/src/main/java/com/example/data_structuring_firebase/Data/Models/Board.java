@@ -7,11 +7,6 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 
 public class Board {
-    public enum Status{
-        STATUS_NOT_STARTED,
-        STATUS_PENDING,
-        STATUS_COMPLETE
-    }
     String id;
     String name;
     long createdAt,timeLimit;
@@ -100,6 +95,10 @@ public class Board {
     @Override
     public boolean equals(@Nullable Object obj) {
         return this.getId().equals(((Board)obj).getId());
+    }
+    public static Board fromJSON(String jsonString)
+    {
+        return new Gson().fromJson(jsonString,Board.class);
     }
     public String toJSON()
     {

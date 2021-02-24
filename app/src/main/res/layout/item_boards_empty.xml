@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@android:color/transparent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="@dimen/_10sdp">
+    <ImageView
+        android:layout_alignParentTop="true"
+        android:layout_width="@dimen/_120sdp"
+        android:layout_height="@dimen/_120sdp"
+        android:layout_above="@id/title"
+        android:src="@drawable/ic_hero_empty"/>
+    <TextView
+        android:layout_marginTop="@dimen/_10sdp"
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_above="@id/desc"
+        style="@style/Theme.DataStructuringFirebase.Body"
+        android:textStyle="bold"
+        android:text="No Boards to show"/>
+    <TextView
+        android:id="@+id/desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        style="@style/Theme.DataStructuringFirebase.Caption"
+        android:layout_alignParentBottom="true"
+        android:text="You seem to have no Boards saved yet! Please add some boards to show up here"/>
+</LinearLayout>

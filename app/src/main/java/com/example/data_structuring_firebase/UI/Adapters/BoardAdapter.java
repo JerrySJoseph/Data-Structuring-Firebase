@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.data_structuring_firebase.UI.CustomViews.ProgressBarView;
 import com.example.data_structuring_firebase.Data.Models.Board;
 import com.example.data_structuring_firebase.R;
+import com.example.data_structuring_firebase.Utils.Functions;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -20,10 +21,14 @@ import java.util.Date;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.BoardHolder> {
+public class BoardAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     ArrayList<Board> models;
     onItemClickListener onItemClickListener;
+    private static final int VIEW_TYPE_EMPTY=-1;
+    private static final int VIEW_TYPE_AD=-2;
+    private static final int VIEW_TYPE_ITEM=-3;
+
     public BoardAdapter() {
         models=new ArrayList<>();
     }
@@ -42,18 +47,34 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.BoardHolder>
 
     @NonNull
     @Override
-    public BoardHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new BoardHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_boards,parent,false));
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        RecyclerView.ViewHolder holder;
+        switch (viewType)
+        {
+            case VIEW_TYPE_ITEM:holder=new BoardHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_boards,parent,false));break;
+            default:holder=new EmptyBoardHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_boards_empty,parent,false));break;
+        }
+        return holder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BoardHolder holder, int position) {
-        holder.Bind(models.get(position));
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        if(getItemViewType(position)==VIEW_TYPE_ITEM)
+            ((BoardHolder)holder).Bind(models.get(position));
+
     }
 
     @Override
     public int getItemCount() {
-        return models.size();
+        return models.size()>1?models.size():1;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        if(models.size()<1)
+            return VIEW_TYPE_EMPTY;
+        else
+            return VIEW_TYPE_ITEM;
     }
 
     protected class BoardHolder extends RecyclerView.ViewHolder{
@@ -76,7 +97,7 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.BoardHolder>
         {
             title.setText(board.getName());
             date.setText(new SimpleDateFormat("dd MMM yyyy hh:mm a").format(new Date(board.getCreatedAt())));
-            status.setText(board.getStatus().toString());
+            status.setText(Functions.ParseBoardStatus(board.getStatus()));
             progressBarView.setTitle("get a job");
             progressBarView.setValue(60);
             progressBarView.setLimit(100);
@@ -91,13 +112,21 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.BoardHolder>
                 @Override
                 public void onClick(View v) {
                     if(onItemClickListener!=null)
-                        onItemClickListener.onMoreClick(board);
+                        onItemClickListener.onMoreClick(board,more);
                 }
             });
         }
     }
+    protected class EmptyBoardHolder extends RecyclerView.ViewHolder{
+
+        public EmptyBoardHolder(@NonNull View itemView) {
+            super(itemView);
+
+        }
+
+    }
     public interface onItemClickListener{
         void onItemClick(Board board);
-        void onMoreClick(Board board);
+        void onMoreClick(Board board,View item);
     }
 }

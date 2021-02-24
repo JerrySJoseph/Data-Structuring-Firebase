@@ -29,62 +29,51 @@
         <!--Default Font Family-->
         <item name="fontFamily">@font/sf_light</item>
         <!-- Status bar color. -->
+        <item name="colorControlNormal">@color/colorWhite</item>
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
         <!-- Customize your theme here. -->
     </style>
-    <!-- FULL SCREEN Theme -->
-    <style name="Theme.DataStructuringFirebase.SplashScreen" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/colorBlue</item>
-        <item name="colorPrimaryVariant">@color/colorBlue</item>
-        <item name="colorOnPrimary">@color/colorWhite</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/colorOrange</item>
-        <item name="colorSecondaryVariant">@color/colorOrange</item>
-        <item name="colorOnSecondary">@color/colorBlack</item>
-        <!--Default Font Family-->
-        <item name="fontFamily">@font/sf_light</item>
 
-        <item name="android:background">?attr/colorPrimary</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
-        <!-- Customize your theme here. -->
+    <style name="CollapseAppBar" parent="Theme.DataStructuringFirebase.AppBarOverlay">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="colorControlNormal">@color/colorWhite</item>
+        <item name="android:textColorSecondary">@color/colorWhite</item>
     </style>
+
     <!-- Custom Headline and font Themes -->
+    <style name="Theme.DataStructuringFirebase.Headline" parent="TextAppearance.MaterialComponents.Headline4">
 
-    <style name="Theme.DataStructuringFirebase.Headline1">
-        <item name="android:textSize">@dimen/Headline1</item>
-        <item name="fontFamily">@font/sf_semibold</item>
     </style>
-
-    <style name="Theme.DataStructuringFirebase.Headline2">
-        <item name="android:textSize">@dimen/Headline2</item>
-        <item name="fontFamily">@font/sf_bold</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <style name="Theme.DataStructuringFirebase.Title">
-        <item name="android:textSize">@dimen/Title</item>
-        <item name="android:textStyle">bold</item>
-        <item name="fontFamily">@font/sf_medium</item>
-    </style>
-
-    <style name="Theme.DataStructuringFirebase.Body">
-        <item name="android:textSize">@dimen/Body</item>
+    <style name="Theme.DataStructuringFirebase.Title" parent="TextAppearance.MaterialComponents.Headline5" >
+        <item name="android:textColor">@android:color/black</item>
         <item name="fontFamily">@font/sf_light</item>
     </style>
 
-    <style name="Theme.DataStructuringFirebase.Caption">
-        <item name="android:textSize">@dimen/Caption</item>
+    <style name="Theme.DataStructuringFirebase.Body" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:textColor">@color/common_google_signin_btn_text_light</item>
         <item name="fontFamily">@font/sf_light</item>
     </style>
 
-    <style name="Theme.DataStructuringFirebase.date">
-        <item name="android:textSize">@dimen/Caption</item>
-        <item name="fontFamily">@font/sf_medium</item>
-        <item name="android:textColor">@color/colorGrey</item>
+    <style name="Theme.DataStructuringFirebase.Caption" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="fontFamily">@font/sf_light</item>
     </style>
 
+    <style name="Theme.DataStructuringFirebase.date" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="fontFamily">@font/sf_light</item>
+    </style>
+    <style name="Theme.DataStructuringFirebase.ItemBoard.Title" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/sf_light</item>
+    </style>
+    <style name="Theme.DataStructuringFirebase.ItemBoard.Body" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="fontFamily">@font/sf_light</item>
+    </style>
+    <style name="Theme.DataStructuringFirebase.ItemBoard.Caption" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="fontFamily">@font/sf_light</item>
+    </style>
+
+    <style name="Theme.DataStructuringFirebase.View.ProgressBar.Text" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="fontFamily">@font/sf_light</item>
+    </style>
     <style name="Theme.DataStructuringFirebase.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

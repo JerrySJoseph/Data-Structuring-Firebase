@@ -3,6 +3,8 @@ package com.example.data_structuring_firebase.UI.Views.AddBoard;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -19,8 +21,11 @@ import android.widget.TimePicker;
 
 import com.example.data_structuring_firebase.Data.Models.Board;
 import com.example.data_structuring_firebase.R;
+import com.example.data_structuring_firebase.UI.ViewModels.MainActivityViewModel;
+import com.example.data_structuring_firebase.Utils.Constants;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -28,18 +33,33 @@ public class AddBoard extends AppCompatActivity {
     Calendar c = Calendar.getInstance();
     TextView tv_date,tv_time;
     EditText et_title,et_desc;
-
+    String boardData=null;
+    Board currentBoard=new Board();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_board);
-        getSupportActionBar().setTitle("Add New Board");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Add New Board");
         tv_date=findViewById(R.id.tv_date);
         tv_time=findViewById(R.id.tv_time);
         et_title=findViewById(R.id.et_title);
         et_desc=findViewById(R.id.et_desc);
+        String action=getIntent().getAction();
+        boardData=getIntent().getStringExtra("boarddata");
+        if(action==Constants.ActionCodes.ACTION_EDIT_BOARD && boardData!=null)
+        {
+            getSupportActionBar().setTitle("Edit Board");
+            populateFields(boardData);
+        }
     }
+    void populateFields(String data)
+    {
+        currentBoard=Board.fromJSON(data);
+        et_title.setText(currentBoard.getName());
+        et_desc.setText(currentBoard.getDesc());
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -103,11 +123,10 @@ public class AddBoard extends AppCompatActivity {
     }
     public Board prepareDataFromView()
     {
-        Board model= new Board();
-        model.setName(et_title.getText().toString().trim());
-        model.setDesc(et_desc.getText().toString().trim());
-        model.setTimeLimit(c.getTimeInMillis());
-        return model;
+        currentBoard.setName(et_title.getText().toString().trim());
+        currentBoard.setDesc(et_desc.getText().toString().trim());
+        currentBoard.setTimeLimit(c.getTimeInMillis());
+        return currentBoard;
 
     }
 }

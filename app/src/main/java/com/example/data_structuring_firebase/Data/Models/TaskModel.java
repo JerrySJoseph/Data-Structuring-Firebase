@@ -11,25 +11,11 @@ public class TaskModel {
     String title;
     String description;
     String priority;
-
+    Status status;
     long createdAt;
-
     long timelimit;
-
-
     boolean isImportant=false;
-
     boolean isFinished=false;
-
-
-
-    public boolean isFinished() {
-        return isFinished;
-    }
-
-    public void setFinished(boolean finished) {
-        isFinished = finished;
-    }
 
     public TaskModel() {
     }
@@ -48,6 +34,23 @@ public class TaskModel {
         this.timelimit = timelimit;
         this.isImportant = isImportant;
     }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public boolean isFinished() {
+        return isFinished;
+    }
+
+    public void setFinished(boolean finished) {
+        isFinished = finished;
+    }
+
 
     @NonNull
     public String getId() {
